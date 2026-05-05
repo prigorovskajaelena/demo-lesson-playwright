@@ -54,6 +54,3 @@ export class OrderPage {
     return new LoginPage(this.page)
   }
 }
-
-
-

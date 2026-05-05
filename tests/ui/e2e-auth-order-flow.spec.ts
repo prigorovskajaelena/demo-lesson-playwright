@@ -6,7 +6,7 @@ import { faker } from '@faker-js/faker'
 test('Login test and order page components check', async ({ page }) => {
   const loginPage = new LoginPage(page)
   await loginPage.open()
-  const orderPage = await loginPage.signIn(USERNAME,PASSWORD)
+  const orderPage = await loginPage.signIn(USERNAME, PASSWORD)
   await orderPage.checkInnerComponents()
 })
 test('Create order test', async ({ page }) => {
@@ -32,7 +32,6 @@ test('check CreateOrderBtnEnabled', async ({ page }) => {
   await orderPage.nameInput.fill(faker.person.firstName())
   await orderPage.phoneInput.fill(faker.phone.number())
   await orderPage.checkCreateOrderBtnEnabled(true)
-
 })
 test('Check logout button', async ({ page }) => {
   const loginPage = new LoginPage(page)
