@@ -49,7 +49,5 @@ test('Check logout button', async ({ page }) => {
   //console.log(await page.url())
   await loginPage.checkInnerComponents()
 
-
-
   //await orderPage.checkLogoutButton()
 })

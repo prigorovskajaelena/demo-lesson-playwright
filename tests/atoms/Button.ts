@@ -1,19 +1,19 @@
-import {expect, Locator} from '@playwright/test'
+import { expect, Locator } from '@playwright/test'
 
 export class Button {
-  readonly btnLocator: Locator;
+  readonly btnLocator: Locator
   constructor(btnLocator: Locator) {
     this.btnLocator = btnLocator
   }
-  async click(): Promise<void> {
-     this.btnLocator.click
+  async click(force = false): Promise<void> {
+    await this.btnLocator.click({ force })
   }
-  
-async checkVisible(visible: boolean): Promise<void> {
-    await expect(this.btnLocator).toBeVisible({visible})
+
+  async checkVisible(visible: boolean): Promise<void> {
+    await expect(this.btnLocator).toBeVisible({ visible })
   }
 
   async checkOrBtEnabled(enabled: boolean): Promise<void> {
     await expect(this.btnLocator).toBeEnabled({ enabled })
-}
+  }
 }

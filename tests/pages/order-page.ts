@@ -3,6 +3,7 @@ import { faker } from '@faker-js/faker'
 import { BasePage } from './base-page'
 import { Button } from '../atoms/Button'
 import { NotFoundPage } from './order-not-found-page'
+import { FoundPage } from './order-found-page'
 
 export class OrderPage extends BasePage {
   readonly page: Page
@@ -15,7 +16,7 @@ export class OrderPage extends BasePage {
   readonly popupField: Locator
   readonly logoutButton: Button
   // add more locators here
-// search popup
+  // search popup
 
   protected readonly searchPopup: Locator
   readonly searchInput: Locator
@@ -68,4 +69,10 @@ export class OrderPage extends BasePage {
     return new NotFoundPage(this.page)
   }
 
+  async checkOrderFound(id: number): Promise<FoundPage> {
+    await this.statusButton.click()
+    await this.searchInput.fill(`${id}`)
+    await this.searchButton.click()
+    return new FoundPage(this.page)
+  }
 }

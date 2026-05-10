@@ -1,14 +1,14 @@
 import { Locator, Page, expect } from '@playwright/test'
 import { BasePage } from './base-page'
 
-export class NotFoundPage extends BasePage {
-  readonly container: Locator
+export class FoundPage extends BasePage {
+  readonly orderDetails: Locator
 
   constructor(page: Page) {
     super(page)
-    this.container = this.page.locator('.not-found')
+    this.orderDetails = this.page.locator('.order-details')
   }
   async checkVisible(visible: boolean): Promise<void> {
-    await expect(this.container).toBeVisible({ visible })
+    await expect(this.orderDetails).toBeVisible({ visible })
   }
 }

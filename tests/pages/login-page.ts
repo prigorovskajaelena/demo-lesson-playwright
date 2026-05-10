@@ -4,8 +4,7 @@ import { SERVICE_URL } from '../../config/env-data'
 import { BasePage } from './base-page'
 import { Button } from '../atoms/Button'
 
-
-export class LoginPage extends BasePage{
+export class LoginPage extends BasePage {
   readonly page: Page
   private readonly url: string = SERVICE_URL
   readonly signInButton: Button
@@ -32,7 +31,7 @@ export class LoginPage extends BasePage{
     await this.signInButton.click()
     return new OrderPage(this.page)
   }
-  async checkInnerComponents (){
+  async checkInnerComponents() {
     await expect(this.usernameField).toBeVisible()
     await expect(this.passwordField).toBeVisible()
     await this.signInButton.checkVisible(true)
